@@ -1,0 +1,20 @@
+{
+	"name": "jsonlens",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Vanilla JavaScript JSON inspection module with tree, pretty and raw views.",
+	"scripts": {
+		"serve": "python3 -m http.server 8000",
+		"smoke": "node tests/node-smoke/smoke.mjs"
+	},
+	"keywords": [
+		"json",
+		"viewer",
+		"inspector",
+		"vanilla-js",
+		"es-modules"
+	],
+	"dependencies": {},
+	"devDependencies": {}
+}
