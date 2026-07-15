@@ -36,6 +36,26 @@ try {
 	assert(fixture.querySelector('.jl-tree'), 'Tree view should render.');
 	report('tree view renders');
 
+	const searchInput = fixture.querySelector('.jl-search-input');
+	let searchBlurCount = 0;
+
+	searchInput.addEventListener('blur', () => {
+		searchBlurCount += 1;
+	});
+	searchInput.focus();
+
+	for (const character of 'status') {
+		searchInput.value += character;
+		searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+		assert(fixture.querySelector('.jl-search-input') === searchInput, 'Search input should remain the same DOM element.');
+		assert(document.activeElement === searchInput, 'Search input should remain focused after every input event.');
+		assert(searchBlurCount === 0, 'Search input should not emit blur while typing.');
+	}
+
+	assert(fixture.querySelector('.jl-search-hit'), 'Search term should highlight matching JSON content.');
+	report('search input remains connected and never blurs while typing');
+
 	fixture.querySelector('[data-jl-mode="pretty"]').click();
 	assert(fixture.querySelector('.jl-pretty'), 'Pretty view should render after mode switch.');
 	report('pretty view renders after mode switch');

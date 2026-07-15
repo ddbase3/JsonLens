@@ -64,6 +64,7 @@ The current baseline supports:
 - active path tracking
 - copy all, copy path and copy value commands
 - simple search term highlighting in tree and pretty views
+- search input focus and cursor preservation during live highlighting
 - localStorage-backed state persistence through optional `StoragePlugin`
 - simulated ModularGrid RowDetail section rendering through `ModularGridRowDetailAdapter`
 
@@ -77,7 +78,7 @@ The current baseline supports:
 ## Current smoke coverage
 
 - `tests/node-smoke/smoke.mjs` covers parser, formatter, path helpers and adapters.
-- `tests/browser-smoke/smoke.js` covers DOM rendering, mode switching, invalid JSON and RowDetail adapter rendering.
+- `tests/browser-smoke/smoke.js` covers DOM rendering, mode switching, search focus preservation, invalid JSON and RowDetail adapter rendering.
 
 ## Known limits
 
